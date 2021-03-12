@@ -14,17 +14,14 @@ import javax.swing.JTextField;
 
 
 /*
- * Program: Aplikacja okienkowa z GUI, która umo¿liwia testowanie 
+ * Program: Aplikacja okienkowa z GUI, ktÃ³ra umoÅ¼liwia testowanie 
  *          operacji wykonywanych na obiektach klasy Person.
  *    Plik: PersonWindowDialog.java
- *          
- *   Autor: Pawe³ Rogalinski
- *    Data: pazdziernik 2017 r.
  *
  *
  * Klasa PersonWindowDialog implementuje pomocnicze okna dialogowe
- * umo¿liwiaj¹ce utworzenie i wype³nienie danymi nowego obiektu klasy Person
- * oraz modyfikacjê danych dla istniej¹cego obiektu klasy Person.
+ * umoÅ¼liwiajÄ…ce utworzenie i wypeÅ‚nienie danymi nowego obiektu klasy Person
+ * oraz modyfikacjÄ™ danych dla istniejÄ…cego obiektu klasy Person.
  */
 public class PersonWindowDialog extends JDialog implements ActionListener {
 	
@@ -32,60 +29,60 @@ public class PersonWindowDialog extends JDialog implements ActionListener {
 
 	
 	/*
-	 *  Referencja do obiektu, który zawiera dane osoby.
+	 *  Referencja do obiektu, ktÃ³ry zawiera dane osoby.
 	 */
 	private Person person;
 
 	
-	// Utworzenie i inicjalizacja komponentów do do budowy
-	// okienkowego interfejsu u¿ytkownika
+	// Utworzenie i inicjalizacja komponentÃ³w do do budowy
+	// okienkowego interfejsu uÅ¼ytkownika
 	
-	// Font dla etykiet o sta³ej szerokoœci znaków
+	// Font dla etykiet o staÅ‚ej szerokoÅ›ci znakÃ³w
 	Font font = new Font("MonoSpaced", Font.BOLD, 12);
 	
-	// Etykiety wyœwietlane na panelu
-	JLabel firstNameLabel = new JLabel("      Imiê: ");
+	// Etykiety wyÅ›wietlane na panelu
+	JLabel firstNameLabel = new JLabel("      ImiÄ™: ");
 	JLabel lastNameLabel  = new JLabel("  Nazwisko: ");
 	JLabel yearLabel      = new JLabel("   Rok ur.: ");
 	JLabel jobLabel       = new JLabel("Stanowisko: ");
 
-	// Pola tekstowe wyœwietlane na panelu
+	// Pola tekstowe wyÅ›wietlane na panelu
 	JTextField firstNameField = new JTextField(10);
 	JTextField lastNameField = new JTextField(10);
 	JTextField yearField = new JTextField(10);
 	JComboBox<PersonJob> jobBox = new JComboBox<PersonJob>(PersonJob.values());
 
-	// Przyciski wyœwietlane na panelu
+	// Przyciski wyÅ›wietlane na panelu
 	JButton OKButton = new JButton("  OK  ");
 	JButton CancelButton = new JButton("Anuluj");
 	
 	
 	/*
 	 * Konstruktor klasy PersonWindowDialog.
-	 *     parent - referencja do okna aplikacji, z którego
-     *              zosta³o wywo³ane to okno dialogowe.
-     *     person - referencja do obiektu reprezentuj¹cego osobê,
-     *              której dane maj¹ byæ modyfikowane. 
-     *              Jeœli person jest równe null to zostanie utworzony 
+	 *     parent - referencja do okna aplikacji, z ktÃ³rego
+     *              zostaÅ‚o wywoÅ‚ane to okno dialogowe.
+     *     person - referencja do obiektu reprezentujÄ…cego osobÄ™,
+     *              ktÃ³rej dane majÄ… byÄ‡ modyfikowane. 
+     *              JeÅ›li person jest rÃ³wne null to zostanie utworzony 
      *              nowy obiekt klasy Person
 	 */
 	private PersonWindowDialog(Window parent, Person person) {
-		// Wywo³anie konstruktora klasy bazowej JDialog.
+		// WywoÅ‚anie konstruktora klasy bazowej JDialog.
 		// Ta instrukcja pododuje ustawienie jako rodzica nowego okna dialogowego
-		// referencji do tego okna, z którego wywo³ano to okno dialogowe.
-		// Drugi parametr powoduje ustawienie trybu modalnoœci nowego okna diakogowego
-		//       - DOCUMENT_MODAL oznacza, ¿e okno rodzica bêdzie blokowane.
+		// referencji do tego okna, z ktÃ³rego wywoÅ‚ano to okno dialogowe.
+		// Drugi parametr powoduje ustawienie trybu modalnoÅ›ci nowego okna diakogowego
+		//       - DOCUMENT_MODAL oznacza, Å¼e okno rodzica bÄ™dzie blokowane.
 		super(parent, Dialog.ModalityType.DOCUMENT_MODAL);
 		
-		// Konfiguracja parametrów tworzonego okna dialogowego
+		// Konfiguracja parametrÃ³w tworzonego okna dialogowego
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		setSize(220, 200);
 		setLocationRelativeTo(parent);
 		
-		// zapamiêtanie referencji do osoby, której dane bêd¹ modyfikowane.
+		// zapamiÄ™tanie referencji do osoby, ktÃ³rej dane bÄ™dÄ… modyfikowane.
 		this.person = person;
 		
-		// Ustawienie tytu³u okna oraz wype³nienie zawartoœci pól tekstowych
+		// Ustawienie tytuÅ‚u okna oraz wypeÅ‚nienie zawartoÅ›ci pÃ³l tekstowych
 		if (person==null){
 			setTitle("Nowa osoba");
 		} else{
@@ -96,22 +93,22 @@ public class PersonWindowDialog extends JDialog implements ActionListener {
 			jobBox.setSelectedItem(person.getJob());
 		}
 		
-		// Dodanie s³uchaczy zdarzeñ do przycisków.
-		// UWAGA: s³uchaczem zdarzeñ bêdzie metoda actionPerformed
-		//        zaimplementowana w tej klasie i wywo³ana dla
-		//        bie¿¹cej instancji okna dialogowego - referencja this
+		// Dodanie sÅ‚uchaczy zdarzeÅ„ do przyciskÃ³w.
+		// UWAGA: sÅ‚uchaczem zdarzeÅ„ bÄ™dzie metoda actionPerformed
+		//        zaimplementowana w tej klasie i wywoÅ‚ana dla
+		//        bieÅ¼Ä…cej instancji okna dialogowego - referencja this
 		OKButton.addActionListener( this );
 		CancelButton.addActionListener( this );
 		
-		// Utworzenie g³ównego panelu okna dialogowego.
-		// Domyœlnym mened¿erem rozd³adu dla panelu bêdzie
-		// FlowLayout, który uk³ada wszystkie komponenty jeden za drugim.
+		// Utworzenie gÅ‚Ã³wnego panelu okna dialogowego.
+		// DomyÅ›lnym menedÅ¼erem rozdÅ‚adu dla panelu bÄ™dzie
+		// FlowLayout, ktÃ³ry ukÅ‚ada wszystkie komponenty jeden za drugim.
 		JPanel panel = new JPanel();
 		
-		// Zmiana koloru t³a g³ównego panelu okna dialogowego
+		// Zmiana koloru tÅ‚a gÅ‚Ã³wnego panelu okna dialogowego
 		panel.setBackground(Color.green);
 
-		// Dodanie i rozmieszczenie na panelu wszystkich komponentów GUI.
+		// Dodanie i rozmieszczenie na panelu wszystkich komponentÃ³w GUI.
 		panel.add(firstNameLabel);
 		panel.add(firstNameField);
 		
@@ -132,11 +129,11 @@ public class PersonWindowDialog extends JDialog implements ActionListener {
 		
 		
 		// Pokazanie na ekranie okna dialogowego
-		// UWAGA: T¹ instrukcjê nale¿y wykonaæ jako ostatni¹
+		// UWAGA: TÄ… instrukcjÄ™ naleÅ¼y wykonaÄ‡ jako ostatniÄ…
 		// po zainicjowaniu i rozmieszczeniu na panelu
-		// wszystkich komponentów GUI.
-		// Od tego momentu aplikacja wyœwietla nowe okno dialogowe
-		// i bokuje g³ówne okno aplikacji, z którego wywo³ano okno dialogowe
+		// wszystkich komponentÃ³w GUI.
+		// Od tego momentu aplikacja wyÅ›wietla nowe okno dialogowe
+		// i bokuje gÅ‚Ã³wne okno aplikacji, z ktÃ³rego wywoÅ‚ano okno dialogowe
 		setVisible(true);
 	}
 	
@@ -144,61 +141,61 @@ public class PersonWindowDialog extends JDialog implements ActionListener {
 	/*
 	 * Implementacja interfejsu ActionListener.
 	 * 
-	 * Metoda actionPerformrd bedzie automatycznie wywo³ywana
-	 * do obs³ugi wszystkich zdarzeñ od obiektów, którym jako s³uchacza zdarzeñ
-	 * do³¹czono obiekt reprezentuj¹cy bie¿¹c¹ instancjê okna aplikacji (referencja this) 
+	 * Metoda actionPerformrd bedzie automatycznie wywoÅ‚ywana
+	 * do obsÅ‚ugi wszystkich zdarzeÅ„ od obiektÃ³w, ktÃ³rym jako sÅ‚uchacza zdarzeÅ„
+	 * doÅ‚Ä…czono obiekt reprezentujÄ…cy bieÅ¼Ä…cÄ… instancjÄ™ okna aplikacji (referencja this) 
 	 */
 	@Override
 	public void actionPerformed(ActionEvent event) {
-		// Odczytanie referencji do obiektu, który wygenerowa³ zdarzenie.
+		// Odczytanie referencji do obiektu, ktÃ³ry wygenerowaÅ‚ zdarzenie.
 		Object source = event.getSource();
 		
 		if (source == OKButton) {
 			try {
 				if (person == null) { // Utworzenie nowej osoby
 					person = new Person(firstNameField.getText(), lastNameField.getText());
-				} else { // Aktualizacji imienia i nazwiska istniej¹cej osoby
+				} else { // Aktualizacji imienia i nazwiska istniejÄ…cej osoby
 					person.setFirstName(firstNameField.getText());
 					person.setLastName(lastNameField.getText());
 				}
-				// Aktualizacja pozosta³ych danych osoby
+				// Aktualizacja pozostaÅ‚ych danych osoby
 				person.setBirthYear(yearField.getText());
 				person.setJob((PersonJob) jobBox.getSelectedItem());
 				
-				// Zamkniêcie okna i zwolnienie wszystkich zasobów.
+				// ZamkniÄ™cie okna i zwolnienie wszystkich zasobÃ³w.
 				dispose();
 			} catch (PersonException e) {
-				// Tu s¹ wychwytywane wyj¹tki zg³aszane przez metody klasy Person
-				// gdy nie s¹ spe³nione ograniczenia na³o¿one na dopuszczelne wartoœci 
-				// poszczególnych atrybutów.
-				// Wyœwietlanie modalnego okna dialogowego
-				// z komunikatem o b³êdzie zg³oszonym za pomoc¹ wyj¹tku PersonException.
-				JOptionPane.showMessageDialog(this, e.getMessage(), "B³¹d", JOptionPane.ERROR_MESSAGE);
+				// Tu sÄ… wychwytywane wyjÄ…tki zgÅ‚aszane przez metody klasy Person
+				// gdy nie sÄ… speÅ‚nione ograniczenia naÅ‚oÅ¼one na dopuszczelne wartoÅ›ci 
+				// poszczegÃ³lnych atrybutÃ³w.
+				// WyÅ›wietlanie modalnego okna dialogowego
+				// z komunikatem o bÅ‚Ä™dzie zgÅ‚oszonym za pomocÄ… wyjÄ…tku PersonException.
+				JOptionPane.showMessageDialog(this, e.getMessage(), "BÅ‚Ä…d", JOptionPane.ERROR_MESSAGE);
 			}
 		}
 
 		if (source == CancelButton) {
-			// Zamkniêcie okna i zwolnienie wszystkich zasobów.
+			// ZamkniÄ™cie okna i zwolnienie wszystkich zasobÃ³w.
 			dispose();
 		}
 	}
 	
 
 	/* 
-	 * Metoda tworzy pomocnicze okno dialogowe, które tworzy 
-	 * nowy obiekt klasy Person i umo¿liwia wprowadzenie danych
+	 * Metoda tworzy pomocnicze okno dialogowe, ktÃ³re tworzy 
+	 * nowy obiekt klasy Person i umoÅ¼liwia wprowadzenie danych
 	 * dla nowo utworzonej osoby.
-	 * Jako pierwszy parametr nale¿y przekazaæ referencjê do g³ównego okna
-	 * aplikacji, z którego ta metoda jest wywo³ywana.
-	 * G³ówne okno aplikacji zostanie zablokowane do momentu zamkniêcia
+	 * Jako pierwszy parametr naleÅ¼y przekazaÄ‡ referencjÄ™ do gÅ‚Ã³wnego okna
+	 * aplikacji, z ktÃ³rego ta metoda jest wywoÅ‚ywana.
+	 * GÅ‚Ã³wne okno aplikacji zostanie zablokowane do momentu zamkniÄ™cia
 	 * okna dialogowego.
-	 * Po zatwierdzeniu zmian przyciskiem OK odbywa siê  walidacja poprawnoœci 
+	 * Po zatwierdzeniu zmian przyciskiem OK odbywa siÄ™  walidacja poprawnoÅ›ci 
 	 * danych w konstruktorze i setterach klasy Person. 
-	 * Jeœli zostan¹ wykryte niepoprawne dane to zostanie przechwycony wyj¹tek 
-	 * PersonException i zostanie wyœwietlony komunikat o b³êdzie.
+	 * JeÅ›li zostanÄ… wykryte niepoprawne dane to zostanie przechwycony wyjÄ…tek 
+	 * PersonException i zostanie wyÅ›wietlony komunikat o bÅ‚Ä™dzie.
 	 * 
-	 *  Po poprawnym wype³nieniu danych metoda zamyka okno dialogowe
-	 *  i zwraca referencjê do nowo utworzonego obiektu klasy Person.
+	 *  Po poprawnym wypeÅ‚nieniu danych metoda zamyka okno dialogowe
+	 *  i zwraca referencjÄ™ do nowo utworzonego obiektu klasy Person.
 	 */
 	public static Person createNewPerson(Window parent) {
 		PersonWindowDialog dialog = new PersonWindowDialog(parent, null);
@@ -207,19 +204,19 @@ public class PersonWindowDialog extends JDialog implements ActionListener {
 
 	
 	/* 
-	 * Metoda tworzy pomocnicze okno dialogowe, które umo¿liwia 
-	 * modyfikacjê danych osoby reprezentowanej przez obiekt klasy Person,
-	 * który zosta³ przekazany jako drugi parametr.
-	 * Jako pierwszy parametr nale¿y przekazaæ referencjê do g³ównego okna
-	 * aplikacji, z którego ta metoda jest wywo³ywana.
-	 * G³ówne okno aplikacji zostanie zablokowane do momentu zamkniêcia
+	 * Metoda tworzy pomocnicze okno dialogowe, ktÃ³re umoÅ¼liwia 
+	 * modyfikacjÄ™ danych osoby reprezentowanej przez obiekt klasy Person,
+	 * ktÃ³ry zostaÅ‚ przekazany jako drugi parametr.
+	 * Jako pierwszy parametr naleÅ¼y przekazaÄ‡ referencjÄ™ do gÅ‚Ã³wnego okna
+	 * aplikacji, z ktÃ³rego ta metoda jest wywoÅ‚ywana.
+	 * GÅ‚Ã³wne okno aplikacji zostanie zablokowane do momentu zamkniÄ™cia
 	 * okna dialogowego.
-	 * Po zatwierdzeniu zmian przyciskiem OK odbywa siê  walidacja poprawnoœci 
+	 * Po zatwierdzeniu zmian przyciskiem OK odbywa siÄ™  walidacja poprawnoÅ›ci 
 	 * danych w konstruktorze i setterach klasy Person. 
-	 * Jeœli zostan¹ wykryte niepoprawne dane to zostanie przechwycony wyj¹tek 
-	 * PersonException i zostanie wyœwietlony komunikat o b³êdzie.
+	 * JeÅ›li zostanÄ… wykryte niepoprawne dane to zostanie przechwycony wyjÄ…tek 
+	 * PersonException i zostanie wyÅ›wietlony komunikat o bÅ‚Ä™dzie.
 	 * 
-	 *  Po poprawnym wype³nieniu danych metoda aktualizuje dane w obiekcie person
+	 *  Po poprawnym wypeÅ‚nieniu danych metoda aktualizuje dane w obiekcie person
 	 *  i zamyka okno dialogowe
 	 */
 	public static void changePersonData(Window parent, Person person) {
