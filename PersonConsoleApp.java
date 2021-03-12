@@ -1,41 +1,38 @@
 import java.util.Arrays;
 
 /*
- * Program: Aplikacja dzia³aj¹ca w oknie konsoli, która umo¿liwia testowanie 
+ * Program: Aplikacja dziaÅ‚ajÄ…ca w oknie konsoli, ktÃ³ra umoÅ¼liwia testowanie 
  *          operacji wykonywanych na obiektach klasy Person.
  *    Plik: PersonConsoleApp.java
- *          
- *   Autor: Pawe³ Rogalinski
- *    Data: pazdziernik 2017 r.
  */
 public class PersonConsoleApp {
 
 	private static final String GREETING_MESSAGE = 
 			"Program Person - wersja konsolowa\n" + 
-	        "Autor: Pawe³ Rogalinski\n" + 
-			"Data:  paŸdziernik 2017 r.\n";
+	        "Autor: PaweÅ‚ Rogalinski\n" + 
+			"Data:  paÅºdziernik 2017 r.\n";
 
 	private static final String MENU = 
-			"    M E N U   G £ Ó W N E  \n" +
+			"    M E N U   G Å Ã“ W N E  \n" +
 			"1 - Podaj dane nowej osoby \n" +
-			"2 - Usuñ dane osoby        \n" +
+			"2 - UsuÅ„ dane osoby        \n" +
 			"3 - Modyfikuj dane osoby   \n" +
 			"4 - Wczytaj dane z pliku   \n" +
 			"5 - Zapisz dane do pliku   \n" +
-			"0 - Zakoñcz program        \n";	
+			"0 - ZakoÅ„cz program        \n";	
 	
 	private static final String CHANGE_MENU = 
-			"   Co zmieniæ?     \n" + 
-	        "1 - Imiê           \n" + 
+			"   Co zmieniÄ‡?     \n" + 
+	        "1 - ImiÄ™           \n" + 
 			"2 - Nazwisko       \n" + 
 	        "3 - Rok urodzenia  \n" + 
 			"4 - Stanowisko     \n" +
-	        "0 - Powrót do menu g³ównego\n";
+	        "0 - PowrÃ³t do menu gÅ‚Ã³wnego\n";
 
 	
 	/* 
-	 * ConsoleUserDialog to pomocnicza klasa zawieraj¹ca zestaw
-	 * prostych metod do realizacji dialogu z u¿ytkownikiem
+	 * ConsoleUserDialog to pomocnicza klasa zawierajÄ…ca zestaw
+	 * prostych metod do realizacji dialogu z uÅ¼ytkownikiem
 	 * w oknie konsoli tekstowej.
 	 */
 	private static ConsoleUserDialog UI = new ConsoleUserDialog();
@@ -43,23 +40,23 @@ public class PersonConsoleApp {
 	
 	public static void main(String[] args) {
 		// Utworzenie obiektu aplikacji konsolowej
-		// oraz uruchomienie g³ównej pêtli aplikacji.
+		// oraz uruchomienie gÅ‚Ã³wnej pÄ™tli aplikacji.
 		PersonConsoleApp application = new PersonConsoleApp();
 		application.runMainLoop();
 	} 
 
 	
 	/*
-	 *  Referencja do obiektu, który zawiera dane aktualnej osoby.
+	 *  Referencja do obiektu, ktÃ³ry zawiera dane aktualnej osoby.
 	 */
 	private Person currentPerson = null;
 	
 	
 	/*
-	 *  Metoda runMainLoop wykonuje g³ówn¹ petlê aplikacji.
-	 *  UWAGA: Ta metoda zawiera nieskoñczon¹ pêtlê,
-	 *         w której program siê zatrzymuje a¿ do zakoñczenia
-	 *         dzia³ania za pomoc¹ metody System.exit(0); 
+	 *  Metoda runMainLoop wykonuje gÅ‚Ã³wnÄ… petlÄ™ aplikacji.
+	 *  UWAGA: Ta metoda zawiera nieskoÅ„czonÄ… pÄ™tlÄ™,
+	 *         w ktÃ³rej program siÄ™ zatrzymuje aÅ¼ do zakoÅ„czenia
+	 *         dziaÅ‚ania za pomocÄ… metody System.exit(0); 
 	 */
 	public void runMainLoop() {
 		UI.printMessage(GREETING_MESSAGE);
@@ -75,49 +72,49 @@ public class PersonConsoleApp {
 					currentPerson = createNewPerson();
 					break;
 				case 2:
-					// usuniêcie danych aktualnej osoby.
+					// usuniÄ™cie danych aktualnej osoby.
 					currentPerson = null;
-					UI.printInfoMessage("Dane aktualnej osoby zosta³y usuniête");
+					UI.printInfoMessage("Dane aktualnej osoby zostaÅ‚y usuniÄ™te");
 					break;
 				case 3:
 					// zmiana danych dla aktualnej osoby
-					if (currentPerson == null) throw new PersonException("¯adna osoba nie zosta³a utworzona.");
+					if (currentPerson == null) throw new PersonException("Å»adna osoba nie zostaÅ‚a utworzona.");
 					changePersonData(currentPerson);
 					break;
 				case 4: {
 					// odczyt danych z pliku tekstowego.
-					String file_name = UI.enterString("Podaj nazwê pliku: ");
+					String file_name = UI.enterString("Podaj nazwÄ™ pliku: ");
 					currentPerson = Person.readFromFile(file_name);
-					UI.printInfoMessage("Dane aktualnej osoby zosta³y wczytane z pliku " + file_name);
+					UI.printInfoMessage("Dane aktualnej osoby zostaÅ‚y wczytane z pliku " + file_name);
 				}
 					break;
 				case 5: {
 					// zapis danych aktualnej osoby do pliku tekstowego 
-					String file_name = UI.enterString("Podaj nazwê pliku: ");
+					String file_name = UI.enterString("Podaj nazwÄ™ pliku: ");
 					Person.printToFile(file_name, currentPerson);
-					UI.printInfoMessage("Dane aktualnej osoby zosta³y zapisane do pliku " + file_name);
+					UI.printInfoMessage("Dane aktualnej osoby zostaÅ‚y zapisane do pliku " + file_name);
 				}
 
 					break;
 				case 0:
-					// zakoñczenie dzia³ania programu
-					UI.printInfoMessage("\nProgram zakoñczy³ dzia³anie!");
+					// zakoÅ„czenie dziaÅ‚ania programu
+					UI.printInfoMessage("\nProgram zakoÅ„czyÅ‚ dziaÅ‚anie!");
 					System.exit(0);
 				} // koniec instrukcji switch
 			} catch (PersonException e) { 
-				// Tu s¹ wychwytywane wyj¹tki zg³aszane przez metody klasy Person
-				// gdy nie s¹ spe³nione ograniczenia na³o¿one na dopuszczelne wartoœci 
-				// poszczególnych atrybutów.
-				// Drukowanie komunikatu o b³êdzie zg³oszonym za pomoc¹ wyj¹tku PersonException.
+				// Tu sÄ… wychwytywane wyjÄ…tki zgÅ‚aszane przez metody klasy Person
+				// gdy nie sÄ… speÅ‚nione ograniczenia naÅ‚oÅ¼one na dopuszczelne wartoÅ›ci 
+				// poszczegÃ³lnych atrybutÃ³w.
+				// Drukowanie komunikatu o bÅ‚Ä™dzie zgÅ‚oszonym za pomocÄ… wyjÄ…tku PersonException.
 				UI.printErrorMessage(e.getMessage());
 			}
-		} // koniec pêtli while
+		} // koniec pÄ™tli while
 	}
 	
 	
 	/*
-	 *  Metoda wyœwietla w oknie konsoli dane aktualnej osoby 
-	 *  pamiêtanej w zmiennej currentPerson.
+	 *  Metoda wyÅ›wietla w oknie konsoli dane aktualnej osoby 
+	 *  pamiÄ™tanej w zmiennej currentPerson.
 	 */
 	void showCurrentPerson() {
 		showPerson(currentPerson);
@@ -125,7 +122,7 @@ public class PersonConsoleApp {
 
 	
 	/* 
-	 * Metoda wyœwietla w oknie konsoli dane osoby reprezentowanej 
+	 * Metoda wyÅ›wietla w oknie konsoli dane osoby reprezentowanej 
 	 * przez obiekt klasy Person
 	 */ 
 	static void showPerson(Person person) {
@@ -133,7 +130,7 @@ public class PersonConsoleApp {
 		
 		if (person != null) {
 			sb.append("Aktualna osoba: \n");
-			sb.append( "      Imiê: " + person.getFirstName() + "\n" );
+			sb.append( "      ImiÄ™: " + person.getFirstName() + "\n" );
 			sb.append( "  Nazwisko: " + person.getLastName() + "\n" );
 			sb.append( "   Rok ur.: " + person.getBirthYear() + "\n" );
 			sb.append( "Stanowisko: " + person.getJob() + "\n");
@@ -145,13 +142,13 @@ public class PersonConsoleApp {
 	
 	/* 
 	 * Meoda wczytuje w konsoli dane nowej osoby, tworzy nowy obiekt
-	 * klasy Person i wype³nia atrybuty wczytanymi danymi.
-	 * Walidacja poprawnoœci danych odbywa siê w konstruktorze i setterach
-	 * klasy Person. Jeœli zostan¹ wykryte niepoprawne dane 
-	 * to zostanie zg³oszony wyj¹tek, który zawiera komunikat o b³êdzie.
+	 * klasy Person i wypeÅ‚nia atrybuty wczytanymi danymi.
+	 * Walidacja poprawnoÅ›ci danych odbywa siÄ™ w konstruktorze i setterach
+	 * klasy Person. JeÅ›li zostanÄ… wykryte niepoprawne dane 
+	 * to zostanie zgÅ‚oszony wyjÄ…tek, ktÃ³ry zawiera komunikat o bÅ‚Ä™dzie.
 	 */
 	static Person createNewPerson(){
-		String first_name = UI.enterString("Podaj imiê: ");
+		String first_name = UI.enterString("Podaj imiÄ™: ");
 		String last_name = UI.enterString("Podaj nazwisko: ");
 		String birth_year = UI.enterString("Podaj rok ur.: ");
 		UI.printMessage("Dozwolone stanowiska:" + Arrays.deepToString(PersonJob.values()));
@@ -159,15 +156,15 @@ public class PersonConsoleApp {
 		Person person;
 		try { 
 			// Utworzenie nowego obiektu klasy Person oraz
-			// ustawienie wartoœci wszystkich atrybutów.
+			// ustawienie wartoÅ›ci wszystkich atrybutÃ³w.
 			person = new Person(first_name, last_name);
 			person.setBirthYear(birth_year);
 			person.setJob(job_name);
 		} catch (PersonException e) {    
-			// Tu s¹ wychwytywane wyj¹tki zg³aszane przez metody klasy Person
-			// gdy nie s¹ spe³nione ograniczenia na³o¿one na dopuszczelne wartoœci 
-			// poszczególnych atrybutów.
-			// Drukowanie komunikatu o b³êdzie zg³oszonym za pomoc¹ wyj¹tku PersonException.
+			// Tu sÄ… wychwytywane wyjÄ…tki zgÅ‚aszane przez metody klasy Person
+			// gdy nie sÄ… speÅ‚nione ograniczenia naÅ‚oÅ¼one na dopuszczelne wartoÅ›ci 
+			// poszczegÃ³lnych atrybutÃ³w.
+			// Drukowanie komunikatu o bÅ‚Ä™dzie zgÅ‚oszonym za pomocÄ… wyjÄ…tku PersonException.
 			UI.printErrorMessage(e.getMessage());
 			return null;
 		}
@@ -176,11 +173,11 @@ public class PersonConsoleApp {
 	
 	
 	/* 
-	 * Metoda pozwala wczytaæ nowe dane dla poszczególnych atrybutów 
-	 * obiekty person i zmienia je poprzez wywo³anie odpowiednich setterów z klasy Person.
-	 * Walidacja poprawnoœci wczyranych danych odbywa siê w setterach
-	 * klasy Person. Jeœli zostan¹ wykryte niepoprawne dane 
-	 * to zostanie zg³oszony wyj¹tek, który zawiera komunikat o b³êdzie.
+	 * Metoda pozwala wczytaÄ‡ nowe dane dla poszczegÃ³lnych atrybutÃ³w 
+	 * obiekty person i zmienia je poprzez wywoÅ‚anie odpowiednich setterÃ³w z klasy Person.
+	 * Walidacja poprawnoÅ›ci wczyranych danych odbywa siÄ™ w setterach
+	 * klasy Person. JeÅ›li zostanÄ… wykryte niepoprawne dane 
+	 * to zostanie zgÅ‚oszony wyjÄ…tek, ktÃ³ry zawiera komunikat o bÅ‚Ä™dzie.
 	 */
 	static void changePersonData(Person person)
 	{
@@ -191,7 +188,7 @@ public class PersonConsoleApp {
 			try {		
 				switch (UI.enterInt(CHANGE_MENU + "==>> ")) {
 				case 1:
-					person.setFirstName(UI.enterString("Podaj imiê: "));
+					person.setFirstName(UI.enterString("Podaj imiÄ™: "));
 					break;
 				case 2:
 					person.setLastName(UI.enterString("Podaj nazwisko: "));
@@ -206,10 +203,10 @@ public class PersonConsoleApp {
 				case 0: return;
 				}  // koniec instrukcji switch
 			} catch (PersonException e) {     
-				// Tu s¹ wychwytywane wyj¹tki zg³aszane przez metody klasy Person
-				// gdy nie s¹ spe³nione ograniczenia na³o¿one na dopuszczelne wartoœci 
-				// poszczególnych atrybutów.
-				// Drukowanie komunikatu o b³êdzie zg³oszonym za pomoc¹ wyj¹tku PersonException.
+				// Tu sÄ… wychwytywane wyjÄ…tki zgÅ‚aszane przez metody klasy Person
+				// gdy nie sÄ… speÅ‚nione ograniczenia naÅ‚oÅ¼one na dopuszczelne wartoÅ›ci 
+				// poszczegÃ³lnych atrybutÃ³w.
+				// Drukowanie komunikatu o bÅ‚Ä™dzie zgÅ‚oszonym za pomocÄ… wyjÄ…tku PersonException.
 				UI.printErrorMessage(e.getMessage());
 			}
 		}
