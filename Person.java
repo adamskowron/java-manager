@@ -7,27 +7,15 @@ import java.io.PrintWriter;
 
 
 /* 
- *  Program: Operacje na obiektach klasy Person
- *     Plik: Person.java
- *           definicja typu wyliczeniowego Job
- *           definicja klasy PersonException
- *           definicja publicznej klasy Person
- *           
- *    Autor: Pawel Rogalinski
- *     Data:  pazdziernik 2017 r.
- */
-
-
-/* 
- *  Typ wyliczeniowy PersonJob reprezentuje przyk³adowe stanowiska, 
- *  które mo¿e zajmowaæ osoba. Klasa zosta³a zaimplementowana
- *  tak, by mog³a byæ rozszerzana o dodatkowe stanowiska.
- *  W tym celu wystarczy do zdefiniowanej listy dodaæ kolejne
- *  wywo³anie konstruktora. 
+ *  Typ wyliczeniowy PersonJob reprezentuje przykÂ³adowe stanowiska, 
+ *  ktÃ³re moÂ¿e zajmowaÃ¦ osoba. Klasa zostaÂ³a zaimplementowana
+ *  tak, by mogÂ³a byÃ¦ rozszerzana o dodatkowe stanowiska.
+ *  W tym celu wystarczy do zdefiniowanej listy dodaÃ¦ kolejne
+ *  wywoÂ³anie konstruktora. 
  */
 enum PersonJob {
 	UNKNOWN("-------"), 
-	GUEST("Goœæ"), 
+	GUEST("GoÅ“Ã¦"), 
 	STUDENT("Student"), 
 	TEACHER("Nauczyciel"), 
 	MANAGER("Kierownik"), 
@@ -49,8 +37,8 @@ enum PersonJob {
 
 
 /*
- * Klasa PersonException jest klas¹ wyj¹tków dedykowan¹ do zg³aszania b³êdów 
- * wystêpuj¹cych przy operacjach na obiektach klasy Person.
+ * Klasa PersonException jest klasÂ¹ wyjÂ¹tkÃ³w dedykowanÂ¹ do zgÂ³aszania bÂ³ÃªdÃ³w 
+ * wystÃªpujÂ¹cych przy operacjach na obiektach klasy Person.
  */
 class PersonException extends Exception {
 
@@ -64,18 +52,18 @@ class PersonException extends Exception {
 
 
 /*
- * Klasa Person reprezentuje osoby, które s¹ opisane za pomoc¹
- * czterech atrybutow: imiê, nazwisko, rok urodzenia, stanowisko.
- * W klasie przyjêto ograniczenia:
- *   - pola firstName oraz lastName musz¹ zawieraæ niepusty ci¹g znaków
- *   - pole birthYear musi zawieraæ liczbê z przedzia³u [1900-2030]
+ * Klasa Person reprezentuje osoby, ktÃ³re sÂ¹ opisane za pomocÂ¹
+ * czterech atrybutow: imiÃª, nazwisko, rok urodzenia, stanowisko.
+ * W klasie przyjÃªto ograniczenia:
+ *   - pola firstName oraz lastName muszÂ¹ zawieraÃ¦ niepusty ciÂ¹g znakÃ³w
+ *   - pole birthYear musi zawieraÃ¦ liczbÃª z przedziaÂ³u [1900-2030]
  *     lub 0 (0 oznacza niezdefiniowany rok urodzenia.
- *   - pole job musi zawieraæ wy³¹cznie jedn¹ z pozycji zdefiniowanych
+ *   - pole job musi zawieraÃ¦ wyÂ³Â¹cznie jednÂ¹ z pozycji zdefiniowanych
  *     w typie wyliczeniowym enum PersonJob. 
  *     
- * Powy¿sze ograniczenia s¹ kontrolowane i w przypadku próby nadania
- * niedozwolonej wartoœci, któremuœ z atrybutów jest zg³aszany wyj¹tek
- * zawieraj¹cy stosowny komunikat.
+ * PowyÂ¿sze ograniczenia sÂ¹ kontrolowane i w przypadku prÃ³by nadania
+ * niedozwolonej wartoÅ“ci, ktÃ³remuÅ“ z atrybutÃ³w jest zgÂ³aszany wyjÂ¹tek
+ * zawierajÂ¹cy stosowny komunikat.
  */
 public class Person {
 	
@@ -99,7 +87,7 @@ public class Person {
 	
 	public void setFirstName(String first_name) throws PersonException {
 		if ((first_name == null) || first_name.equals(""))
-			throw new PersonException("Pole <Imiê> musi byæ wype³nione.");
+			throw new PersonException("Pole <ImiÃª> musi byÃ¦ wypeÂ³nione.");
 		this.firstName = first_name;
 	}
 
@@ -111,7 +99,7 @@ public class Person {
 	
 	public void setLastName(String last_name) throws PersonException {
 		if ((last_name == null) || last_name.equals(""))
-			throw new PersonException("Pole <Nazwisko> musi byæ wype³nione.");
+			throw new PersonException("Pole <Nazwisko> musi byÃ¦ wypeÂ³nione.");
 		this.lastName = last_name;
 	}
 
@@ -123,20 +111,20 @@ public class Person {
 	
 	public void setBirthYear(int birth_year) throws PersonException {
 		if ((birth_year!=0) && (birth_year < 1900 || birth_year > 2030))
-			throw new PersonException("Rok urodzenia musi byæ w przedziale [1900 - 2030].");
+			throw new PersonException("Rok urodzenia musi byÃ¦ w przedziale [1900 - 2030].");
 		this.birthYear = birth_year;
 	}
 	
 	
 	public void setBirthYear(String birth_year) throws PersonException {
-		if (birth_year == null || birth_year.equals("")){  // pusty ³añcuch znaków oznacza rok niezdefiniowany
+		if (birth_year == null || birth_year.equals("")){  // pusty Â³aÃ±cuch znakÃ³w oznacza rok niezdefiniowany
 			setBirthYear(0);
 			return;
 		}
 		try { 
 			setBirthYear(Integer.parseInt(birth_year));
 		} catch (NumberFormatException e) {
-			throw new PersonException("Rok urodzenia musi byæ liczb¹ ca³kowit¹.");
+			throw new PersonException("Rok urodzenia musi byÃ¦ liczbÂ¹ caÂ³kowitÂ¹.");
 		}
 	}
 
@@ -152,7 +140,7 @@ public class Person {
 	
 	
 	public void setJob(String job_name) throws PersonException {
-		if (job_name == null || job_name.equals("")) {  // pusty ³añcuch znaków oznacza stanowisko niezdefiniowane
+		if (job_name == null || job_name.equals("")) {  // pusty Â³aÃ±cuch znakÃ³w oznacza stanowisko niezdefiniowane
 			this.job = PersonJob.UNKNOWN;
 			return;
 		}
@@ -196,7 +184,7 @@ public class Person {
 			person.setJob(txt[3]);	
 			return person;
 		} catch(IOException e){
-			throw new PersonException("Wyst¹pi³ b³¹d podczas odczytu danych z pliku.");
+			throw new PersonException("WystÂ¹piÂ³ bÂ³Â¹d podczas odczytu danych z pliku.");
 		}	
 	}
 	
@@ -207,7 +195,7 @@ public class Person {
 		} catch (FileNotFoundException e){
 			throw new PersonException("Nie odnaleziono pliku " + file_name);
 		} catch(IOException e){
-			throw new PersonException("Wyst¹pi³ b³¹d podczas odczytu danych z pliku.");
+			throw new PersonException("WystÂ¹piÂ³ bÂ³Â¹d podczas odczytu danych z pliku.");
 		}	
 	}
 	
