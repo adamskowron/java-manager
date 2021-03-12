@@ -10,12 +10,10 @@ import javax.swing.JTextField;
 
 
 /*
- * Program: Aplikacja okienkowa z GUI, ktÛra umoøliwia testowanie 
+ * Program: Aplikacja okienkowa z GUI, kt√≥ra umo≈ºliwia testowanie 
  *          operacji wykonywanych na obiektach klasy Person.
  *    Plik: PersonWindowApp.java
  *          
- *   Autor: Pawe≥ Rogalinski
- *    Data: pazdziernik 2017 r.
  */
 public class CarWindowApp extends JFrame implements ActionListener {
 	
@@ -23,24 +21,24 @@ public class CarWindowApp extends JFrame implements ActionListener {
 
 	private static final String GREETING_MESSAGE = 
 			"Program Person - wersja okienkowa\n" + 
-	        "Autor: Pawe≥ Rogalinski\n" + 
-			"Data:  paüdziernik 2017 r.\n";
+	        "Autor: Pawe≈Ç Rogalinski\n" + 
+			"Data:  pa≈∫dziernik 2017 r.\n";
 	
 	
 	public static void main(String[] args) {
-		// Utworzenie obiektu reprezentujπcego g≥Ûwne okno aplikacji.
-		// Po utworzeniu obiektu na pulpicie zostanie wyúwietlone
-		// g≥Ûwne okno aplikacji.
+		// Utworzenie obiektu reprezentujƒÖcego g≈Ç√≥wne okno aplikacji.
+		// Po utworzeniu obiektu na pulpicie zostanie wy≈õwietlone
+		// g≈Ç√≥wne okno aplikacji.
 		new CarWindowApp();
 		
-		// UWAGA: moøna utworzyÊ kilka okien aplikacji.
-		// Wsystkie okna bÍdπ wyúwietlone w tym samum miejscu na pulpicie.
-		// Po uruchomieniu kilku okien naleøy je rÍcznie porozsuwaÊ.
-		// Kaøde okno dzia≥a niezaleønie od pozosta≥ych.
-		// Aplikacja koÒczy swoje dzia≥anie po zamkniÍciu wszystkich utworzonych okien
-		// lub po naciúniÍciu przycisku "ZakoÒcz aplikacjÍ",
+		// UWAGA: mo≈ºna utworzyƒá kilka okien aplikacji.
+		// Wsystkie okna bƒôdƒÖ wy≈õwietlone w tym samum miejscu na pulpicie.
+		// Po uruchomieniu kilku okien nale≈ºy je rƒôcznie porozsuwaƒá.
+		// Ka≈ºde okno dzia≈Ça niezale≈ºnie od pozosta≈Çych.
+		// Aplikacja ko≈Ñczy swoje dzia≈Çanie po zamkniƒôciu wszystkich utworzonych okien
+		// lub po naci≈õniƒôciu przycisku "Zako≈Ñcz aplikacjƒô",
 		// 
-		// Jeøeli chcesz wyprÛbowaÊ dzia≥anie kilku okien odkomentÛj poniøsze linie
+		// Je≈ºeli chcesz wypr√≥bowaƒá dzia≈Çanie kilku okien odkoment√≥j poni≈ºsze linie
 		// new PersonWindowApp();
 		// new PersonWindowApp();
 	}
@@ -48,58 +46,58 @@ public class CarWindowApp extends JFrame implements ActionListener {
 	
 	
 	/*
-	 *  Referencja do obiektu, ktÛry zawiera dane aktualnej osoby.
+	 *  Referencja do obiektu, kt√≥ry zawiera dane aktualnej osoby.
 	 */
 	private Car currentCar;
 	
 	
-	// Font dla etykiet o sta≥ej szerokoúci znakÛw
+	// Font dla etykiet o sta≈Çej szeroko≈õci znak√≥w
 	Font font = new Font("MonoSpaced", Font.BOLD, 12);
 
-	// Etykiety wyúwietlane na panelu w g≥Ûwnym oknie aplikacji
+	// Etykiety wy≈õwietlane na panelu w g≈Ç√≥wnym oknie aplikacji
 	JLabel BrandNameLabel = new JLabel("      Marka: ");
 	JLabel ModelNameLabel  = new JLabel("  Model: ");
 	JLabel yearLabel      = new JLabel("   Rok produkcji: ");
 	JLabel powerlaber	= new Jlabel("Moc:")
 	JLabel BodyLabel       = new JLabel("Typ nadwozia: ");
 
-	// Pola tekstowe wyúwietlane na panelu w g≥Ûwnym oknie aplikacji
+	// Pola tekstowe wy≈õwietlane na panelu w g≈Ç√≥wnym oknie aplikacji
 	JTextField BrandNameField = new JTextField(10);
 	JTextField ModelNameField    = new JTextField(10);
 	JTextField PowerField	= new JTextField(10);
 	JTextField yearField    = new JTextField(10);
 	JTextField BodyField     = new JTextField(10);
 
-	// Przyciski wyúwietlane na panelu w g≥Ûwnym oknie aplikacji
-	JButton newButton    = new JButton("Nowy samochÛd");
-	JButton editButton   = new JButton("ZmieÒ dane");
+	// Przyciski wy≈õwietlane na panelu w g≈Ç√≥wnym oknie aplikacji
+	JButton newButton    = new JButton("Nowy samoch√≥d");
+	JButton editButton   = new JButton("Zmie≈Ñ dane");
 	JButton saveButton   = new JButton("Zapisz do pliku");
 	JButton loadButton   = new JButton("Wczytaj z pliku");
-	JButton deleteButton = new JButton("UsuÒ samochÛd");
+	JButton deleteButton = new JButton("Usu≈Ñ samoch√≥d");
 	JButton infoButton   = new JButton("O programie");
-	JButton exitButton   = new JButton("ZakoÒcz aplikacjÍ");
+	JButton exitButton   = new JButton("Zako≈Ñcz aplikacjƒô");
 
 	
 	/*
-	 * Utworzenie i konfiguracja g≥Ûwnego okna apkikacji
+	 * Utworzenie i konfiguracja g≈Ç√≥wnego okna apkikacji
 	 */
 	public PersonWindowApp(){
-		// Konfiguracja parametrÛw g≥Ûwnego okna aplikacji
+		// Konfiguracja parametr√≥w g≈Ç√≥wnego okna aplikacji
 		setTitle("CarWindowApp");  
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		setSize(270, 270);
 		setResizable(false);
 		setLocationRelativeTo(null);
 
-		// Zmiana domyúlnego fontu dla wszystkich etykiet
-		// Uøyto fontu o sta≥ej szerokoúci znakÛw, by wyrÛwnaÊ
-		// szerokoúÊ wszystkich etykiet.
+		// Zmiana domy≈õlnego fontu dla wszystkich etykiet
+		// U≈ºyto fontu o sta≈Çej szeroko≈õci znak√≥w, by wyr√≥wnaƒá
+		// szeroko≈õƒá wszystkich etykiet.
 		lastNameLabel.setFont(font);
 		firstNameLabel.setFont(font);
 		yearLabel.setFont(font);
 		jobLabel.setFont(font);
 
-		// Zablokowanie moøliwoúci edycji tekstÛw we wszystkich 
+		// Zablokowanie mo≈ºliwo≈õci edycji tekst√≥w we wszystkich 
 		// polach tekstowych.  (pola nieedytowalne)
 		firstNameField.setEditable(false);
 		lastNameField.setEditable(false);
@@ -107,10 +105,10 @@ public class CarWindowApp extends JFrame implements ActionListener {
 		jobField.setEditable(false);
 
 		
-		// Dodanie s≥uchaczy zdarzeÒ do wszystkich przyciskÛw.
-		// UWAGA: s≥uchaczem zdarzeÒ bÍdzie metoda actionPerformed
-		//        zaimplementowana w tej klasie i wywo≥ana dla
-		//        bieøπcej instancji okna aplikacji - referencja this
+		// Dodanie s≈Çuchaczy zdarze≈Ñ do wszystkich przycisk√≥w.
+		// UWAGA: s≈Çuchaczem zdarze≈Ñ bƒôdzie metoda actionPerformed
+		//        zaimplementowana w tej klasie i wywo≈Çana dla
+		//        bie≈ºƒÖcej instancji okna aplikacji - referencja this
 		newButton.addActionListener(this);
 		editButton.addActionListener(this);
 		saveButton.addActionListener(this);
@@ -119,13 +117,13 @@ public class CarWindowApp extends JFrame implements ActionListener {
 		infoButton.addActionListener(this);
 		exitButton.addActionListener(this);
 		
-		// Utworzenie g≥Ûwnego panelu okna aplikacji.
-		// Domyúlnym menedøerem rozd≥adu dla panelu bÍdzie
-		// FlowLayout, ktÛry uk≥ada wszystkie komponenty jeden za drugim.
+		// Utworzenie g≈Ç√≥wnego panelu okna aplikacji.
+		// Domy≈õlnym mened≈ºerem rozd≈Çadu dla panelu bƒôdzie
+		// FlowLayout, kt√≥ry uk≈Çada wszystkie komponenty jeden za drugim.
 		JPanel panel = new JPanel();
 		
 		// Dodanie i rozmieszczenie na panelu wszystkich
-		// komponentÛw GUI.
+		// komponent√≥w GUI.
 		panel.add(BrandNameLabel);
 		panel.add(BrandNameField);
 		
@@ -149,24 +147,24 @@ public class CarWindowApp extends JFrame implements ActionListener {
 		panel.add(infoButton);
 		panel.add(exitButton);
 		
-		// Umieszczenie Panelu w g≥Ûwnym oknie aplikacji.
+		// Umieszczenie Panelu w g≈Ç√≥wnym oknie aplikacji.
 		setContentPane(panel);
 		
-		// Wype≥nienie pÛl tekstowych danymi aktualnej osoby.
+		// Wype≈Çnienie p√≥l tekstowych danymi aktualnej osoby.
 		showCurrentCar();
 		
-		// Pokazanie na ekranie g≥Ûwnego okna aplikacji
-		// UWAGA: Tπ instrukcjÍ naleøy wykonaÊ jako ostatniπ
+		// Pokazanie na ekranie g≈Ç√≥wnego okna aplikacji
+		// UWAGA: TƒÖ instrukcjƒô nale≈ºy wykonaƒá jako ostatniƒÖ
 		// po zainicjowaniu i rozmieszczeniu na panelu
-		// wszystkich komponentÛw GUI.
-		// Od tego momentu aplikacja uruchamia g≥Ûwnπ pÍtlÍ zdarzeÒ
-		// ktÛra dzia≥a w nowym wπtku niezaleønie od pozosta≥ej czÍúci programu.
+		// wszystkich komponent√≥w GUI.
+		// Od tego momentu aplikacja uruchamia g≈Ç√≥wnƒÖ pƒôtlƒô zdarze≈Ñ
+		// kt√≥ra dzia≈Ça w nowym wƒÖtku niezale≈ºnie od pozosta≈Çej czƒô≈õci programu.
 		setVisible(true);
 	}
 
 	
 	/*
-	 * Metoda wype≥nia wszystkie pola tekstowe danymi
+	 * Metoda wype≈Çnia wszystkie pola tekstowe danymi
 	 * aktualnej osoby.
 	 */
 	void showCurrentCar() {
@@ -189,13 +187,13 @@ public class CarWindowApp extends JFrame implements ActionListener {
 	/*
 	 * Implementacja interfejsu ActionListener.
 	 * 
-	 * Metoda actionPerformrd bedzie automatycznie wywo≥ywana
-	 * do obs≥ugi wszystkich zdarzeÒ od obiektÛw, ktÛrym jako s≥uchacza zdarzeÒ
-	 * do≥πczono obiekt reprezentujπcy bieøπcπ instancjÍ okna aplikacji (referencja this) 
+	 * Metoda actionPerformrd bedzie automatycznie wywo≈Çywana
+	 * do obs≈Çugi wszystkich zdarze≈Ñ od obiekt√≥w, kt√≥rym jako s≈Çuchacza zdarze≈Ñ
+	 * do≈ÇƒÖczono obiekt reprezentujƒÖcy bie≈ºƒÖcƒÖ instancjƒô okna aplikacji (referencja this) 
 	 */
 	@Override
 	public void actionPerformed(ActionEvent event) {
-		// Odczytanie referencji do obiektu, ktÛry wygenerowa≥ zdarzenie.
+		// Odczytanie referencji do obiektu, kt√≥ry wygenerowa≈Ç zdarzenie.
 		Object eventSource = event.getSource();
 
 		try {
@@ -206,17 +204,17 @@ public class CarWindowApp extends JFrame implements ActionListener {
 				currentCar = null;
 			}
 			if (eventSource == saveButton) {
-				String fileName = JOptionPane.showInputDialog("Podaj nazwÍ pliku");
+				String fileName = JOptionPane.showInputDialog("Podaj nazwƒô pliku");
 				if (fileName == null || fileName.equals("")) return;  // Cancel lub pusta nazwa pliku.
 				Car.printToFile(fileName, currentCar);
 			}
 			if (eventSource == loadButton) {
-				String fileName = JOptionPane.showInputDialog("Podaj nazwÍ pliku");
+				String fileName = JOptionPane.showInputDialog("Podaj nazwƒô pliku");
 				if (fileName == null || fileName.equals("")) return;  // Cancel lub pusta nazwa pliku. 
 				currentCar = Car.readFromFile(fileName);
 			}
 			if (eventSource == editButton) {
-				if (currentCar == null) throw new CarException("Øaden samochÛd nie zosta≥ utworzony."); 
+				if (currentCar == null) throw new CarException("≈ªaden samoch√≥d nie zosta≈Ç utworzony."); 
 				CarWindowDialog.changeCarData(this, currentCar);
 			}
 			if (eventSource == infoButton) {
@@ -226,15 +224,15 @@ public class CarWindowApp extends JFrame implements ActionListener {
 				System.exit(0);
 			}
 		} catch (CarException e) {
-			// Tu sπ wychwytywane wyjπtki zg≥aszane przez metody klasy Person
-			// gdy nie sπ spe≥nione ograniczenia na≥oøone na dopuszczelne wartoúci 
-			// poszczegÛlnych atrybutÛw.
-			// Wyúwietlanie modalnego okna dialogowego
-			// z komunikatem o b≥Ídzie zg≥oszonym za pomocπ wyjπtku PersonException.
-			JOptionPane.showMessageDialog(this, e.getMessage(), "B≥πd", JOptionPane.ERROR_MESSAGE);
+			// Tu sƒÖ wychwytywane wyjƒÖtki zg≈Çaszane przez metody klasy Person
+			// gdy nie sƒÖ spe≈Çnione ograniczenia na≈Ço≈ºone na dopuszczelne warto≈õci 
+			// poszczeg√≥lnych atrybut√≥w.
+			// Wy≈õwietlanie modalnego okna dialogowego
+			// z komunikatem o b≈Çƒôdzie zg≈Çoszonym za pomocƒÖ wyjƒÖtku PersonException.
+			JOptionPane.showMessageDialog(this, e.getMessage(), "B≈ÇƒÖd", JOptionPane.ERROR_MESSAGE);
 		}
 		
-		// Aktualizacja zawartoúci wszystkich pÛl tekstowych.
+		// Aktualizacja zawarto≈õci wszystkich p√≥l tekstowych.
 		showCurrentCar();
 	}	
 	
